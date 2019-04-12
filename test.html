@@ -1,6 +1,6 @@
-
 <html>
 <style>
+    
     .deej:hover{
         
         background-color:green;
@@ -30,7 +30,6 @@
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   cursor: pointer;
-
     }
     ul {
   list-style-type: none;
@@ -39,11 +38,9 @@
   overflow: hidden;
   background-color: #333;
 }
-
 li {
   float: left;
 }
-
 li a {
   display: block;
   color: white;
@@ -51,12 +48,46 @@ li a {
   padding: 14px 16px;
   text-decoration: none;
 }
-
 /* Change the link color to #111 (black) on hover */
 li a:hover {
   background-color: #111;
 }  
     
+    table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+
    
       
 </style>
@@ -77,7 +108,6 @@ li a:hover {
   };
   firebase.initializeApp(config);
     
-
                 
         // Check to see if you are logged in
         firebase.auth().onAuthStateChanged(function(user) {
@@ -98,7 +128,6 @@ li a:hover {
                 mydiv.innerHTML = name
                 myphotodiv = document.getElementById("myphoto");
                 myphotodiv.innerHTML = "<img src='" + imageUrl + "'/>";
-
                 firebase.database().ref('/tweets').once('value').then(function(snapshot) {
                     var data = (snapshot.val());
                     if (data == null) {
@@ -121,7 +150,6 @@ li a:hover {
         }); // end check auth state
         
         function encodeImageFileAsURL() {
-
             var filesSelected = document.getElementById("inputFileToLoad").files;
             if (filesSelected.length > 0) {
                 var fileToLoad = filesSelected[0];
@@ -229,8 +257,9 @@ li a:hover {
             firebase.auth().signOut().then(function() {
             });
         }
-        
 
+
+        
     
     </script>
 
@@ -264,11 +293,44 @@ li a:hover {
     <div id="mydata"></div>
     <div id="myphoto"></div>
         
+        <h2>Colored Table Header</h2>
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>Peter</td>
+    <td>Griffin</td>
+    <td>$100</td>
+  </tr>
+  <tr>
+    <td>Lois</td>
+    <td>Griffin</td>
+    <td>$150</td>
+  </tr>
+  <tr>
+    <td>Joe</td>
+    <td>Swanson</td>
+    <td>$300</td>
+  </tr>
+  <tr>
+    <td>Cleveland</td>
+    <td>Brown</td>
+    <td>$250</td>
+</tr>
+</table>
         
-        </center>  
+        
+        <center>
+        
+        
+        </center>
         
     </body>
-
+    </center>
     
 
     
