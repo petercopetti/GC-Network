@@ -1,3 +1,4 @@
+
 <html>
 <style>
  
@@ -205,7 +206,7 @@ li a:hover {
                     if (data[u][t].img != "") {
                         mytab = mytab + "<td><img src='" + users[u].profile_picture + "' width='50px'></td>";
                         mytab = mytab + "<td>" + users[u].email + "</td>";
-                        mytab = mytab + "<td>" + data[u][t].tweet + "</td>";
+                        mytab = mytab + "<td >" + data[u][t].tweet + "</td>";
                         mytab = mytab + "<td>" + time + "<br><img src='" + data[u][t].img + "' width='300px'></td>";
                     } else {
                         mytab = mytab + "<td><img src='" + users[u].profile_picture + "' width='50px'></td>";
@@ -270,23 +271,29 @@ li a:hover {
         function  signout() {
             console.log("Signing out");
             firebase.auth().signOut().then(function() {
-            });
+          s  });
         }
         
 
     
     </script>
 <style>
-    table {
+   table {
   background-color: white;
+  border-color: orange;
+  border-radius: 15px;
 }
+
+    }
+
         </style>
-    <body>
-
-        
 
         
         
+<body>
+
+        
+
         
         
 <style>
@@ -297,15 +304,13 @@ background-color:skyblue;
         
         </style>
         
-        <img src="logo.png" alt="GC Network" width="90" height="80"><br><br>
         
-    <ul><br>
+    <ul>
   <li><a href="default.asp">Home</a></li>
   <li><a href="news.asp">My Tweets</a></li>
   <li><a href="contact.asp">My Groups</a></li>
   <li><a href="about.asp">Settings</a></li>
-</ul><br>
-    
+</ul> 
 
         
     
@@ -313,25 +318,28 @@ background-color:skyblue;
         <button onclick="signin()" class="deej">Sign in</button>
         <button onclick="signout()" class="deed">Sign out</button>
         <br>
+       
+        <a href="fbtest.json" target="_target"></a><br>
     
-        <form><br>
-            Tweet:<br><br>
-            <textarea id="twit" type="text" name="thetweet" cols="100" rows="4"></textarea>
+        <form>
+            Tweet:<br>
+            <textarea id="twit" style= "border-style: solid; border-color:gold; border-width: 3px;" type="text" name="thetweet" cols="100" rows="4"></textarea>
         </form> 
         <button type="button" onclick="tweet()">Submit</button>
     
         <br><input id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" />
         <div id="imgTest" style="display:none;"></div>
         
-    <div id="mytweets"></div>
+    <div id="mytweets" ></div>
     <div id="mydata"></div>
     <div id="myphoto"></div>
-    
-        </body>
+        
         
         </center>
         
-  
+    </body>
+
+    
+
+    
 </html>
-
-
