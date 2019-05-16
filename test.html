@@ -122,6 +122,8 @@ li a:hover {
   firebase.initializeApp(config);
     
 
+    
+
                 
         // Check to see if you are logged in
         firebase.auth().onAuthStateChanged(function(user) {
@@ -208,11 +210,13 @@ li a:hover {
                         mytab = mytab + "<td>" + users[u].email + "</td>";
                         mytab = mytab + "<td >" + data[u][t].tweet + "</td>";
                         mytab = mytab + "<td>" + time + "<br><img src='" + data[u][t].img + "' width='300px'></td>";
+                         mytab = mytab + "<td><button>Like</button></td>";
                     } else {
                         mytab = mytab + "<td><img src='" + users[u].profile_picture + "' width='50px'></td>";
                         mytab = mytab + "<td>" + users[u].email + "</td>";
                         mytab = mytab + "<td>" + data[u][t].tweet + "</td>";
                         mytab = mytab + "<td>" + time + "</td>";
+                        mytab = mytab + "<td><button>Like</button></td>";
                         
                         
                     } 
@@ -273,6 +277,7 @@ li a:hover {
             firebase.auth().signOut().then(function() {
           s  });
         }
+    
         
 
     
@@ -308,7 +313,7 @@ background-color:skyblue;
     <ul>
   <li><a href="test.html">Home</a></li>
   <li><a href="tweets.html">My Tweets</a></li>
-  <li><a href="groups.html">My Groups</a></li>
+  <li><a href="refer.html">Refer A Friend</a></li>
   <li><a href="about.html">About</a></li>
 </ul> <br><br>
  
@@ -335,6 +340,19 @@ background-color:skyblue;
     <div id="mytweets" ></div>
     <div id="mydata"></div>
     <div id="myphoto"></div>
+    
+   <script>
+    
+        var likes = 0;
+        mylikes = document.getElementById('mylikes');
+        mylikes.innerHTML = likes;
+        
+        function addlikes() {
+        mylikes = document.getElementById('mylikes');
+        mylikes.innerHTML = likes + 1;
+    
+    </script>
+       
         
         
         
