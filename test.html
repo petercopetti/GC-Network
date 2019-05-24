@@ -1,6 +1,29 @@
 
 <html>
-<style>
+    <head>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+            
+            
+            .btn {
+            
+            background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  font-size: 16px;
+  cursor: pointer;
+        }  
+        
+        .btn:hover {
+            background-color: royalblue
+        }
+            
+        
  
    @keyframes deej {
   0%   {background-color:; left:0px; top:0px;}
@@ -98,6 +121,10 @@ li a {
 li a:hover {
   background-color: #111;
 }  
+    
+    <p id='mylikes'><font size="5" color="white">This is some text!</font></p>
+    
+    
     
    
       
@@ -200,6 +227,7 @@ li a:hover {
             users = data[1]; // put on top, because changed data - not good coding change later
             data = data[0];
             
+            //var count = 0;
             for (var u in data) {
                 for (var t in data[u]) {
                     mytab = mytab + "<tr>";
@@ -210,14 +238,20 @@ li a:hover {
                         mytab = mytab + "<td>" + users[u].email + "</td>";
                         mytab = mytab + "<td >" + data[u][t].tweet + "</td>";
                         mytab = mytab + "<td>" + time + "<br><img src='" + data[u][t].img + "' width='300px'></td>";
-                         mytab = mytab + "<td><button>Like</button></td>";
+                         mytab = mytab + "<td><button onclick='addlikes()' class='btn'><i class='fa fa-thumbs-up' style='font size: 36px'></i>Like</button></td>";
+                        mytab = mytab + "<td><button onclick='dislike()' class='btn'><i class ='fa fa-thumbs-down' style='font size: 36px'></i>Dislike</button></td>";
+                        
                     } else {
                         mytab = mytab + "<td><img src='" + users[u].profile_picture + "' width='50px'></td>";
                         mytab = mytab + "<td>" + users[u].email + "</td>";
                         mytab = mytab + "<td>" + data[u][t].tweet + "</td>";
                         mytab = mytab + "<td>" + time + "</td>";
-                        mytab = mytab + "<td><button>Like</button></td>";
+                        mytab = mytab + "<td><button onclick='addlikes()' class='btn'><i class='fa fa-thumbs-up' style='font size: 36px'></i>Like</button></td>";
+                        mytab = mytab + "<td><button onclick='dislike()' class='btn'><i class ='fa fa-thumbs-down' style='font size: 36px'></i>Dislike</button></td>";
                         
+                        
+                        
+
                         
                     } 
                     mytab = mytab + "</tr>";
@@ -227,6 +261,7 @@ li a:hover {
             mytab = mytab + "</table>"
             var mytdiv = document.getElementById("mytweets");
             //mytdiv.innerHTML = mylist;
+            console.log(mytab)
             mytdiv.innerHTML = mytab;
         }
         
@@ -278,6 +313,22 @@ li a:hover {
           s  });
         }
     
+    
+    
+
+        var likes = 0 
+        function addlikes() {
+            mylike = document.getElementById('mylikes');
+            likes = likes + 1;
+            mylike.innerHTML = likes;
+        }
+    
+    var dislikes = 0
+    function dislike() {
+        mydislike = document.getElementById('mydislikes');
+        dislikes = dislikes + 1;
+        mydislike. innerHTML = dislikes;
+    }
         
 
     
@@ -288,6 +339,8 @@ li a:hover {
   border-color: orange;
   border-radius: 15px;
 }
+    
+
 
     
 
@@ -316,9 +369,10 @@ background-color:skyblue;
   <li><a href="refer.html">Refer A Friend</a></li>
   <li><a href="about.html">About</a></li>
 </ul> <br><br>
- 
-  <img src="logo.png" alt="GC Network" width="90" height="80"><br><br>
+    
+  <img src="https://user-images.githubusercontent.com/45665731/57384375-80121f00-717e-11e9-8153-3b20beb2652e.png" alt="GC Network" width="90" height="80"><br><br>
 
+   
         
     
         
@@ -332,7 +386,17 @@ background-color:skyblue;
             Tweet:<br>
             <textarea id="twit" style= "border-style: solid; border-color:gold; border-width: 3px;" type="text" name="thetweet" cols="100" rows="4"></textarea>
         </form> 
-        <button type="button" onclick="tweet()">Submit</button>
+        
+    
+    <button onclick="tweet()" class="btn"><i style='font size: 36px'></i>Submit</button>
+    
+    <p><font size="3" font color="black">Total Likes :</font></p>
+    
+    <p id='mylikes'>0</p>
+    
+    <p><font size="3" font color="black">Total Dislikes :</font></p>
+    
+    <p id='mydislikes'>0</p>
     
         <br><input id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" />
         <div id="imgTest" style="display:none;"></div>
@@ -341,17 +405,7 @@ background-color:skyblue;
     <div id="mydata"></div>
     <div id="myphoto"></div>
     
-   <script>
     
-        var likes = 0;
-        mylikes = document.getElementById('mylikes');
-        mylikes.innerHTML = likes;
-        
-        function addlikes() {
-        mylikes = document.getElementById('mylikes');
-        mylikes.innerHTML = likes + 1;
-    
-    </script>
        
         
         
@@ -367,6 +421,6 @@ background-color:skyblue;
     
 
     
-
+</head>
     
 </html>
